@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Smartguard — Seguridad, tecnología y automatización para hogares y negocios.">
+<title>Smartguard | Seguridad & Tecnología</title>
+<style>
+:root{
+  --bg:#05080d;
+  --bg2:#09111c;
+  --card:#0d1622;
+  --card2:#101c2a;
+  --text:#f4f8fc;
+  --muted:#9aabba;
+  --line:rgba(120,190,255,.14);
+  --blue:#1d8dff;
+  --cyan:#38d8ff;
+  --glow:rgba(29,141,255,.28);
+  --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(5,8,13,.78);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.2px}
+.brand-mark{
+  width:38px;height:38px;border:1px solid rgba(56,216,255,.55);
+  border-radius:11px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#0c2b48,#07121f);
+  box-shadow:0 0 24px rgba(29,141,255,.16);
+  font-size:14px;
+}
+.brand span{font-size:19px}
+.navlinks{display:flex;gap:30px;color:#b9c8d7;font-size:14px}
+.navlinks a:hover{color:white}
+.navcta,.primary{
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  color:#03101b;font-weight:800;border:0;
+  box-shadow:0 10px 30px var(--glow);
+}
+.navcta{padding:11px 17px;border-radius:10px;font-size:13px}
+.hero{
+  position:relative;overflow:hidden;
+  min-height:690px;display:flex;align-items:center;
+  background:
+    radial-gradient(circle at 75% 42%,rgba(29,141,255,.20),transparent 30%),
+    radial-gradient(circle at 92% 10%,rgba(56,216,255,.10),transparent 22%),
+    linear-gradient(120deg,#05080d 25%,#08111c 100%);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;opacity:.35;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:55px 55px;mask-image:linear-gradient(to right,black,transparent 85%);
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;position:relative}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;padding:7px 11px;
+  border:1px solid var(--line);border-radius:999px;color:#b9eaff;
+  background:rgba(13,29,45,.55);font-size:12px;font-weight:700;
+  margin-bottom:22px;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+h1{font-size:clamp(44px,6vw,76px);line-height:1.02;letter-spacing:-3px;max-width:700px}
+.gradient{background:linear-gradient(90deg,#fff,#78dfff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:18px;color:var(--muted);max-width:590px;margin:24px 0 32px}
+.actions{display:flex;gap:13px;flex-wrap:wrap}
+.primary,.secondary{padding:14px 20px;border-radius:11px;font-size:14px;display:inline-flex;align-items:center;justify-content:center}
+.secondary{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.035);color:#dbe7f2}
+.secondary:hover{background:rgba(255,255,255,.07)}
+.hero-visual{position:relative;min-height:480px}
+.house{
+  position:absolute;inset:35px 0 20px 25px;border:1px solid rgba(120,190,255,.20);
+  border-radius:28px;background:
+    linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.01)),
+    radial-gradient(circle at 50% 40%,rgba(29,141,255,.16),transparent 45%);
+  box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 70px rgba(29,141,255,.08);
+  overflow:hidden;
+}
+.house:before{content:"";position:absolute;left:13%;right:13%;bottom:16%;height:48%;border:1px solid rgba(126,198,255,.25);border-bottom:0;transform:skewX(-12deg);background:linear-gradient(90deg,rgba(13,38,60,.6),rgba(6,15,25,.25))}
+.house:after{content:"";position:absolute;left:16%;right:16%;bottom:15%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 25px var(--cyan)}
+.cam{
+  position:absolute;right:15%;top:19%;width:92px;height:54px;border-radius:16px;
+  border:1px solid rgba(56,216,255,.65);background:#091725;
+  transform:rotate(-7deg);box-shadow:0 0 35px rgba(56,216,255,.25);
+}
+.cam:before{content:"";position:absolute;left:18px;top:13px;width:28px;height:28px;border-radius:50%;border:4px solid #74e8ff;box-shadow:0 0 20px var(--cyan)}
+.cam:after{content:"";position:absolute;right:-24px;top:15px;width:25px;height:25px;background:#0c1b2a;clip-path:polygon(0 50%,100% 0,100% 100%)}
+.scan{position:absolute;left:9%;right:9%;top:38%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 18px var(--cyan);animation:scan 4s infinite}
+@keyframes scan{0%,100%{transform:translateY(-80px);opacity:.3}50%{transform:translateY(130px);opacity:1}}
+.node{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 22px var(--cyan)}
+.n1{left:15%;top:24%}.n2{right:18%;top:61%}.n3{left:25%;bottom:22%}
+.signal{position:absolute;right:6%;bottom:7%;padding:15px 17px;border:1px solid var(--line);background:rgba(8,16,25,.84);border-radius:14px;backdrop-filter:blur(10px);font-size:12px;color:#c7d7e5}
+.signal b{display:block;color:white;font-size:14px;margin-bottom:3px}
+section{padding:100px 0}
+.section-head{max-width:700px;margin-bottom:45px}
+.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.6px;margin-bottom:10px}
+h2{font-size:clamp(32px,4vw,50px);line-height:1.08;letter-spacing:-1.8px}
+.lead{color:var(--muted);margin-top:15px;max-width:650px}
+.solutions{background:#070c13}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  border:1px solid var(--line);border-radius:18px;padding:26px;min-height:220px;
+  transition:.25s ease;
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(56,216,255,.32);box-shadow:0 20px 55px rgba(0,0,0,.25)}
+.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(29,141,255,.10);border:1px solid rgba(56,216,255,.18);color:#8ceaff;font-weight:800;margin-bottom:22px}
+.card h3{font-size:19px;margin-bottom:9px}.card p{font-size:14px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.step{padding:30px;border-right:1px solid var(--line);background:rgba(255,255,255,.018)}
+.step:last-child{border-right:0}
+.num{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:30px}
+.step h3{font-size:18px;margin-bottom:8px}.step p{font-size:14px;color:var(--muted)}
+.dual{background:linear-gradient(180deg,#070c13,#05080d)}
+.dualgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.dualcard{padding:38px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(145deg,#0d1723,#09111b)}
+.dualcard.featured{border-color:rgba(56,216,255,.35);box-shadow:0 0 60px rgba(29,141,255,.08)}
+.dualcard h3{font-size:27px;margin:12px 0}.dualcard p{color:var(--muted);max-width:470px;margin-bottom:25px}
+.products{background:#070c13}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.product{
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#0b131e
+}
+.product-img{height:180px;background:radial-gradient(circle at 50% 40%,rgba(56,216,255,.20),transparent 45%),linear-gradient(145deg,#111d2a,#070c12);display:grid;place-items:center;color:#83e8ff;font-weight:800;letter-spacing:1px}
+.product-body{padding:19px}.product h3{font-size:16px}.product p{font-size:13px;color:var(--muted);margin:6px 0 14px}.product a{font-size:13px;color:#8deaff;font-weight:800}
+.form-section{background:#05080d}
+.form-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.form-info p{color:var(--muted);margin:15px 0 25px}
+.form-box{padding:30px;border:1px solid var(--line);border-radius:20px;background:#09111b}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}.field.full{grid-column:1/-1}
+label{display:block;font-size:12px;color:#b9c8d7;font-weight:700;margin-bottom:7px}
+input,select,textarea{width:100%;padding:13px 14px;border:1px solid rgba(130,190,230,.15);border-radius:10px;background:#060b12;color:white;font:inherit;outline:none}
+input:focus,select:focus,textarea:focus{border-color:rgba(56,216,255,.6);box-shadow:0 0 0 3px rgba(56,216,255,.07)}
+textarea{min-height:125px;resize:vertical}
+.form-box button{width:100%;padding:14px;border:0;border-radius:10px;margin-top:4px}
+.about{background:#070c13}
+.aboutbox{max-width:850px;border-left:2px solid var(--cyan);padding-left:26px}
+.aboutbox p{color:var(--muted);font-size:18px;margin-top:15px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+details{border:1px solid var(--line);border-radius:13px;padding:18px 20px;background:rgba(255,255,255,.02)}
+summary{cursor:pointer;font-weight:700;font-size:14px}details p{color:var(--muted);font-size:14px;padding-top:12px}
+.final{padding:90px 0;background:radial-gradient(circle at 50% 30%,rgba(29,141,255,.15),transparent 45%),#05080d;text-align:center}
+.final p{color:var(--muted);max-width:620px;margin:14px auto 25px}
+footer{border-top:1px solid var(--line);padding:35px 0;background:#04070b;color:var(--muted)}
+.footergrid{display:flex;justify-content:space-between;gap:25px;align-items:center}.footerbrand{color:white;font-weight:800}.footerlinks{display:flex;gap:20px;font-size:13px}.footerlinks a:hover{color:white}
+.mobile-menu{display:none}
+@media(max-width:900px){
+  .navlinks{display:none}.navcta{display:none}.mobile-menu{display:block;color:white;font-size:22px}
+  .hero-grid,.form-wrap{grid-template-columns:1fr}.hero{min-height:auto;padding:85px 0 65px}.hero-visual{min-height:390px}
+  .grid4,.product-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:600px){
+  .container{width:min(var(--max),calc(100% - 28px))}.nav{height:68px}
+  h1{letter-spacing:-2px}.hero p{font-size:16px}.hero-visual{min-height:320px}.house{inset:20px 0 10px 0}
+  section{padding:75px 0}.grid4,.product-grid,.dualgrid,.faq,.steps{grid-template-columns:1fr}
+  .step{border-right:0!important;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}
+  .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+  .footergrid{flex-direction:column;align-items:flex-start}.footerlinks{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <div class="brand-mark">SG</div><span>SMARTGUARD</span>
+    </a>
+    <nav class="navlinks">
+      <a href="#soluciones">Soluciones</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+    <a class="navcta" href="#contacto">Quiero asesoramiento</a>
+    <div class="mobile-menu">☰</div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker"><span class="dot"></span> Seguridad · Tecnología · Automatización</div>
+      <h1>Seguridad inteligente.<br><span class="gradient">Tecnología para tu hogar.</span></h1>
+      <p>Protegé lo que importa y llevá tu hogar o negocio a un nuevo nivel de seguridad, control y automatización.</p>
+      <div class="actions">
+        <a class="primary" href="#contacto">Quiero asesoramiento</a>
+        <a class="secondary" href="#soluciones">Ver soluciones</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="Ilustración conceptual de un hogar inteligente">
+      <div class="house"><div class="scan"></div><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><div class="cam"></div></div>
+      <div class="signal"><b>Sistema conectado</b>Protección y control desde un solo lugar.</div>
+    </div>
+  </div>
+</section>
+
+<section class="solutions" id="soluciones">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Soluciones</div>
+      <h2>Tu hogar puede hacer más.</h2>
+      <p class="lead">La seguridad moderna no tiene por qué ser solamente una cámara. Combiná protección, automatización y tecnología según lo que realmente necesitás.</p>
+    </div>
+    <div class="grid4">
+      <article class="card"><div class="icon">01</div><h3>Seguridad</h3><p>Cámaras, alarmas y sensores para detectar y monitorear lo que ocurre en tus espacios.</p></article>
+      <article class="card"><div class="icon">02</div><h3>Smart Home</h3><p>Automatización de iluminación, dispositivos y rutinas para hacer tu hogar más cómodo e inteligente.</p></article>
+      <article class="card"><div class="icon">03</div><h3>Control de acceso</h3><p>Soluciones para controlar y gestionar quién puede ingresar a tu hogar o negocio.</p></article>
+      <article class="card"><div class="icon">04</div><h3>Tecnología</h3><p>Dispositivos y herramientas pensadas para mejorar la seguridad, el control y la experiencia diaria.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Simple y claro</div><h2>Cómo funciona.</h2><p class="lead">Empezá contándonos qué querés resolver. Después vemos juntos cuál es la solución más adecuada.</p></div>
+    <div class="steps">
+      <div class="step"><div class="num">01 —</div><h3>Contanos qué necesitás</h3><p>Casa, departamento, comercio u oficina. Cuanto más sepamos, mejor.</p></div>
+      <div class="step"><div class="num">02 —</div><h3>Analizamos tu espacio</h3><p>Identificamos accesos, necesidades de cobertura y posibilidades de automatización.</p></div>
+      <div class="step"><div class="num">03 —</div><h3>Elegís tu solución</h3><p>Podés pedir asesoramiento, comprar productos o combinar equipos con instalación.</p></div>
+      <div class="step"><div class="num">04 —</div><h3>Instalamos o enviamos</h3><p>Cuando el servicio esté disponible, coordinamos instalación o enviamos tu kit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dual">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Dos formas de empezar</div><h2>Elegí cómo querés hacerlo.</h2></div>
+    <div class="dualgrid">
+      <article class="dualcard featured"><div class="eyebrow">Servicio</div><h3>Quiero una solución completa</h3><p>Contanos qué querés proteger o automatizar y te ayudamos a pensar una solución. Cuando corresponda, podremos coordinar equipos, instalación y configuración.</p><a class="primary" href="#contacto">Quiero asesoramiento</a></article>
+      <article class="dualcard"><div class="eyebrow">DIY</div><h3>Quiero hacerlo por mi cuenta</h3><p>Elegí productos o kits y realizá la instalación por tu cuenta. La tienda se incorporará progresivamente al proyecto.</p><a class="secondary" href="#productos">Ver productos</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="productos">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Próximamente</div><h2>Productos y kits.</h2><p class="lead">Estamos preparando un catálogo de tecnología para seguridad y hogar inteligente. Estos son ejemplos de las categorías que podremos ofrecer.</p></div>
+    <div class="product-grid">
+      <article class="product"><div class="product-img">CÁMARA WI-FI</div><div class="product-body"><h3>Cámara Wi-Fi</h3><p>Videovigilancia y acceso remoto.</p><a href="#contacto">Consultar →</a></div></article>
+      <article class="product"><div class="product-img">SENSOR</div><div class="product-body"><h3>Sensor de movimiento</h3><p>Detección para sistemas inteligentes.</p><a href="#contacto">Consultar →</a></div></article>
+      <article class="product"><div class="product-img">SMART LOCK</div><div class="product-body"><h3>Cerradura inteligente</h3><p>Control de acceso desde tecnología smart.</p><a href="#contacto">Consultar →</a></div></article>
+      <article class="product"><div class="product-img">KIT SMART</div><div class="product-body"><h3>Kit de seguridad</h3><p>Una base para empezar a proteger tu espacio.</p><a href="#contacto">Consultar →</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="contacto">
+  <div class="container form-wrap">
+    <div class="form-info">
+      <div class="eyebrow">Hablemos</div>
+      <h2>Contanos qué necesitás.</h2>
+      <p>Si no sabés exactamente qué comprar, no hay problema. Contanos qué querés proteger, automatizar o mejorar y te contactaremos para entender mejor tu situación.</p>
+      <p><strong>Buenos Aires, Argentina</strong></p>
+    </div>
+    <form class="form-box" action="#" method="post">
+      <div class="form-grid">
+        <div class="field"><label for="name">Nombre</label><input id="name" name="name" required></div>
+        <div class="field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" required></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email"></div>
+        <div class="field"><label for="property">Tipo de propiedad</label><select id="property" name="property"><option>Casa</option><option>Departamento</option><option>Comercio</option><option>Oficina</option><option>Otro</option></select></div>
+        <div class="field full"><label for="need">¿Qué necesitás?</label><select id="need" name="need"><option>Cámaras</option><option>Alarma</option><option>Sensores</option><option>Control de acceso</option><option>Domótica</option><option>No estoy seguro</option></select></div>
+        <div class="field full"><label for="mode">¿Qué estás buscando?</label><select id="mode" name="mode"><option>Solo productos</option><option>Productos + instalación</option><option>Asesoramiento</option></select></div>
+        <div class="field full"><label for="message">Contanos un poco más</label><textarea id="message" name="message" placeholder="Por ejemplo: quiero proteger la entrada y el patio de mi casa..."></textarea></div>
+      </div>
+      <button class="primary" type="submit">Quiero mi propuesta</button>
+    </form>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="container">
+    <div class="aboutbox">
+      <div class="eyebrow">Smartguard</div>
+      <h2>Una idea simple: hacer que la tecnología sea realmente útil.</h2>
+      <p>Smartguard nace para combinar seguridad, tecnología y automatización en soluciones simples para hogares y negocios.</p>
+      <p>Estamos construyendo la marca paso a paso, aprendiendo, probando productos y desarrollando soluciones que puedan ser útiles en la vida real.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Preguntas frecuentes</div><h2>Antes de empezar.</h2></div>
+    <div class="faq">
+      <details><summary>¿Necesito saber qué equipos comprar?</summary><p>No. Podés pedir asesoramiento y contarnos qué querés resolver.</p></details>
+      <details><summary>¿Puedo comprar solamente los productos?</summary><p>Sí. La propuesta contempla una futura modalidad DIY para quienes quieran instalar por su cuenta.</p></details>
+      <details><summary>¿Smartguard realiza instalaciones?</summary><p>La instalación se incorporará progresivamente a medida que la marca desarrolle sus capacidades y servicios.</p></details>
+      <details><summary>¿Puedo ampliar mi sistema después?</summary><p>La idea es trabajar con soluciones que puedan crecer según las necesidades del hogar o negocio.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <div class="eyebrow">SMARTGUARD</div>
+    <h2>Tu próximo hogar puede ser más inteligente.</h2>
+    <p>Empezá con una solución de seguridad o tecnología pensada para vos.</p>
+    <div class="actions" style="justify-content:center"><a class="primary" href="#contacto">Quiero asesoramiento</a><a class="secondary" href="#productos">Ver productos</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footergrid">
+    <div><div class="footerbrand">SMARTGUARD</div><div style="font-size:13px">Seguridad & Tecnología · Buenos Aires, Argentina</div></div>
+    <div class="footerlinks"><a href="https://instagram.com/smartguard.ar" target="_blank">Instagram</a><a href="#">Facebook</a><a href="#contacto">Contacto</a></div>
+  </div>
+</footer>
+</body>
+</html>
